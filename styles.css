@@ -143,3 +143,6 @@ html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -app
   #stage{grid-template-columns:1fr;padding:90px 8px 8px}
   .notes{display:none}
 }
+
+.notes.hidden{transform:translateX(120%);opacity:0}
+.notes{transition:transform .3s ease, opacity .3s ease}
