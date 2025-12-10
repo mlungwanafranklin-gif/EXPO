@@ -1,17 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Digital Fortune Cookie</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Illusions Museum — Dark Sci-Fi</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="cookie-container">
-        <div id="cookie" class="cookie"></div>
-        <button id="crackBtn">Crack the Cookie</button>
-        <div id="fortune" class="fortune"></div>
-    </div>
 
-    <script src="script.js"></script>
+<header class="topbar">
+  <div class="brand">Illusions Museum</div>
+  <div class="controls">
+    <button id="prev">◀ Prev</button>
+    <button id="next">Next ▶</button>
+    <button id="shuffle">Shuffle</button>
+    <button id="explain">Toggle Notes</button>
+  </div>
+</header>
+
+<main id="stage">
+  <!-- Panel 1: Moving Gradient Wall -->
+  <section class="panel active" data-title="Moving Gradient Wall" data-note="Subtle static gradients + banded contrast create perceived motion.">
+    <h2 class="panel-title">Moving Gradient Wall</h2>
+    <div class="moving-wall"></div>
+  </section>
+
+  <!-- Panel 2: Breathing Circle -->
+  <section class="panel" data-title="Breathing Circle" data-note="Synchronized easing makes a single shape appear alive.">
+    <h2 class="panel-title">Breathing Circle</h2>
+    <div class="breath-wrap">
+      <div class="breath-circle"></div>
+    </div>
+  </section>
+
+  <!-- Panel 3: Impossible Square -->
+  <section class="panel" data-title="Impossible Square" data-note="Careful shading tricks the visual system into 3D contradictions.">
+    <h2 class="panel-title">Impossible Square</h2>
+    <div class="impossible-square" aria-hidden="true"></div>
+  </section>
+
+  <!-- Panel 4: Stacked Text Illusion -->
+  <section class="panel" data-title="Stacked Text" data-note="Overlapping shadows + offset copies give text a 3D stacked feel.">
+    <h2 class="panel-title">Stacked Text</h2>
+    <div class="stacked-text">
+      <span>PERCEPTION</span>
+      <span>PERCEPTION</span>
+      <span>PERCEPTION</span>
+    </div>
+  </section>
+
+  <!-- Panel 5: Hover Warp Room -->
+  <section class="panel" data-title="Hover Warp" data-note="Mouse-driven distortion using CSS variables and layered gradients.">
+    <h2 class="panel-title">Hover Warp</h2>
+    <div class="warp" id="warp"></div>
+  </section>
+
+  <!-- Panel 6: Infinity Tunnel -->
+  <section class="panel" data-title="Infinity Tunnel" data-note="Repeating scaled rings + perspective create forward motion into depth.">
+    <h2 class="panel-title">Infinity Tunnel</h2>
+    <div class="tunnel">
+      <div class="rings" aria-hidden="true">
+        <!-- rings created via CSS pseudo-elements for perf -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<aside class="notes" id="notes">
+  <h3 id="noteTitle">Moving Gradient Wall</h3>
+  <p id="noteText">Subtle static gradients + banded contrast create perceived motion.</p>
+  <div class="footer">Built with HTML, CSS & minimal JS — Dark Sci-Fi theme</div>
+</aside>
+
+<script src="script.js"></script>
 </body>
 </html>
+
