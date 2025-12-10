@@ -44,3 +44,42 @@
 
   render();
 })();
+
+/*  Dark-sci-fi illusion museum  —  minimal controller  */
+const panels   = document.querySelectorAll('.panel');
+const prevBtn  = document.getElementById('prev');
+const nextBtn  = document.getElementById('next');
+const shuffle  = document.getElementById('shuffle');
+const explain  = document.getElementById('explain');
+const noteBox  = document.getElementById('notes');
+const noteTitle= document.getElementById('noteTitle');
+const noteText = document.getElementById('noteText');
+
+let idx = 0;
+
+function activate(i){
+  idx = (i + panels.length) % panels.length;          // wrap
+  panels.forEach((p,n)=> p.classList.toggle('active', n === idx));
+  // update side card
+  const active = panels[idx];
+  noteTitle.textContent = active.dataset.title;
+  noteText.textContent  = active.dataset.note;
+}
+
+/* button actions */
+nextBtn.onclick = () => activate(idx + 1);
+prevBtn.onclick = () => activate(idx - 1);
+shuffle.onclick = () => activate(Math.floor(Math.random() * panels.length));
+
+/* keyboard nav */
+document.addEventListener('keydown', e=>{
+  if (e.key === 'ArrowRight') nextBtn.click();
+  if (e.key === 'ArrowLeft')  prevBtn.click();
+  if (e.key === ' ')          shuffle.click();
+});
+
+/* show / hide note card */
+explain.onclick = () => noteBox.classList.toggle('hidden');
+
+/* first paint */
+activate(0);
