@@ -83,3 +83,5 @@ explain.onclick = () => noteBox.classList.toggle('hidden');
 
 /* first paint */
 activate(0);
+
+setInterval(()=>nextBtn.click(),15000);   // 15 s per room
