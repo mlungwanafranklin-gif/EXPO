@@ -25,16 +25,17 @@ html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -app
 .controls button:hover{color:#e6fbff;transform:translateY(-2px)}
 
 /* layout */
-#stage{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:90px 30px 30px;max-width:1300px;margin:0 auto;width:100%}
+/* 1. kill the grid, make each panel viewport-sized */
+#stage{height:100vh;display:flex;align-items:center;justify-content:center}
 .panel{
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-  border-radius:12px;padding:26px;min-height:360px;position:relative;overflow:hidden;
-  border:1px solid rgba(94,231,255,0.03);box-shadow:0 10px 40px rgba(2,6,12,0.6);
-  transition:transform .28s ease, box-shadow .28s ease, opacity .28s;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:absolute;          /* stack on top of each other */
+  inset:0;                    /* top:0 right:0 bottom:0 left:0 */
+  opacity:0;pointer-events:none;
 }
-.panel:not(.active){opacity:.5;transform:scale(.99)}
-.panel-title{margin:0 0 14px;color:var(--accent);font-size:18px;letter-spacing:.6px}
+.panel.active{opacity:1;pointer-events:auto}
+
+/* 2. keep notes visible but slide it off-screen when hidden */
+.notes.hidden{transform:translateX(120%)}
 
 /* NOTES aside */
 .notes{
