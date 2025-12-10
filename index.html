@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind-Reading Trick</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Digital Fortune Cookie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="cookie-container">
+        <div id="cookie" class="cookie"></div>
+        <button id="crackBtn">Crack the Cookie</button>
+        <div id="fortune" class="fortune"></div>
+    </div>
 
-<h1>Think of a number (any number!)</h1>
-<p>Follow these steps in your mind:</p>
-<ol>
-  <li>Multiply it by 2.</li>
-  <li>Add 10.</li>
-  <li>Divide by 2.</li>
-  <li>Subtract your original number.</li>
-</ol>
-
-<button onclick="showPrediction()">Reveal Your Number</button>
-
-<div id="answer" class="reveal"></div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
