@@ -1,4 +1,3 @@
-
 // tiny controller: nav, shuffle, notes, warp mouse effect
 (() => {
   const panels = Array.from(document.querySelectorAll('.panel'));
@@ -85,3 +84,4 @@ explain.onclick = () => noteBox.classList.toggle('hidden');
 activate(0);
 
 setInterval(()=>nextBtn.click(),15000);   // 15 s per room
+
