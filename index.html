@@ -1,81 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CSS Illusions Museum — Dark Sci-Fi</title>
+  <title>Spiritual Illusions — Light & Truth</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand">Illusions Museum</div>
+  <div class="brand">Spiritual Illusions</div>
   <div class="controls">
     <button id="prev">◀ Prev</button>
     <button id="next">Next ▶</button>
     <button id="shuffle">Shuffle</button>
-    <button id="explain">Toggle Notes</button>
+    <button id="explain">Toggle Insights</button>
   </div>
 </header>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <main id="stage">
   <!-- Panel 1: Moving Gradient Wall -->
-  <section class="panel active" data-title="Moving Gradient Wall" data-note="Subtle static gradients + banded contrast create perceived motion.">
-    <h2 class="panel-title">Moving Gradient Wall</h2>
+  <section class="panel active" data-title="The Moving Wall">
+    <h2 class="panel-title">The Moving Wall</h2>
+    <div class="subtitle">Perceiving the Imperceptible</div>
     <div class="moving-wall"></div>
   </section>
 
   <!-- Panel 2: Breathing Circle -->
-  <section class="panel" data-title="Breathing Circle" data-note="Synchronized easing makes a single shape appear alive.">
-    <h2 class="panel-title">Breathing Circle</h2>
+  <section class="panel" data-title="The Living Light">
+    <h2 class="panel-title">The Living Light</h2>
+    <div class="subtitle">The Pulse of Divinity</div>
     <div class="breath-wrap">
+      <div class="breath-ring"></div>
+      <div class="breath-ring"></div>
+      <div class="breath-ring"></div>
       <div class="breath-circle"></div>
     </div>
   </section>
 
   <!-- Panel 3: Impossible Square -->
-  <section class="panel" data-title="Impossible Square" data-note="Careful shading tricks the visual system into 3D contradictions.">
-    <h2 class="panel-title">Impossible Square</h2>
-    <div class="impossible-square" aria-hidden="true"></div>
-  </section>
-
-  <!-- Panel 4: Stacked Text Illusion -->
-  <section class="panel" data-title="Stacked Text" data-note="Overlapping shadows + offset copies give text a 3D stacked feel.">
-    <h2 class="panel-title">Stacked Text</h2>
-    <div class="stacked-text">
-      <span>PERCEPTION</span>
-      <span>PERCEPTION</span>
-      <span>PERCEPTION</span>
+  <section class="panel" data-title="The Divine Mystery">
+    <h2 class="panel-title">The Divine Mystery</h2>
+    <div class="subtitle">Beyond Human Understanding</div>
+    <div class="impossible-container">
+      <div class="impossible-square">
+        <div class="side top"></div>
+        <div class="side bottom"></div>
+      </div>
     </div>
   </section>
 
-  <!-- Panel 5: Hover Warp Room -->
-  <section class="panel" data-title="Hover Warp" data-note="Mouse-driven distortion using CSS variables and layered gradients.">
-    <h2 class="panel-title">Hover Warp</h2>
-    <div class="warp" id="warp"></div>
+  <!-- Panel 4: Stacked Text -->
+  <section class="panel" data-title="Layers of Truth">
+    <h2 class="panel-title">Layers of Truth</h2>
+    <div class="subtitle">Revelation Line Upon Line</div>
+    <div class="stacked-text">
+      <span>REVELATION</span>
+      <span>REVELATION</span>
+      <span>REVELATION</span>
+    </div>
+  </section>
+
+  <!-- Panel 5: Hover Warp -->
+  <section class="panel" data-title="The Field of Agency">
+    <h2 class="panel-title">The Field of Agency</h2>
+    <div class="subtitle">Your Influence on Reality</div>
+    <div class="warp" id="warp">
+      <div class="warp-grid"></div>
+    </div>
   </section>
 
   <!-- Panel 6: Infinity Tunnel -->
-  <section class="panel" data-title="Infinity Tunnel" data-note="Repeating scaled rings + perspective create forward motion into depth.">
-    <h2 class="panel-title">Infinity Tunnel</h2>
+  <section class="panel" data-title="The Eternal Round">
+    <h2 class="panel-title">The Eternal Round</h2>
+    <div class="subtitle">Progress Without End</div>
     <div class="tunnel">
-      <div class="rings" aria-hidden="true">
-        <!-- rings created via CSS pseudo-elements for perf -->
+      <div class="tunnel-rings">
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
+        <div class="tunnel-ring"></div>
       </div>
     </div>
   </section>
 </main>
 
 <aside class="notes" id="notes">
-  <h3 id="noteTitle">Moving Gradient Wall</h3>
-  <p id="noteText">Subtle static gradients + banded contrast create perceived motion.</p>
+  <h3 id="noteTitle">The Moving Wall</h3>
+  <div id="noteContent">
+    <!-- Content injected by JavaScript -->
+  </div>
+  <div class="footer">
+    Use ← → arrows to navigate • Space to shuffle • H to toggle insights<br>
+    "By small and simple things are great things brought to pass"
+  </div>
 </aside>
 
-<footer>
-  <div class="footer">Built with HTML, CSS & minimal JS — Dark Sci-Fi theme</div>
-</footer>
+<div class="counter"><span id="current">1</span> / <span id="total">6</span></div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
