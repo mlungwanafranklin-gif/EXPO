@@ -15,6 +15,7 @@ function enterMuseum(){
 }
 
 function startTour(){
-    window.location.href = "museum.html";
+    window.location.href = "index.html";
 }
 ```
+
