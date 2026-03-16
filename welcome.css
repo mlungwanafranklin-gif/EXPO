@@ -1,0 +1,55 @@
+```css
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:#02070d;
+    color:#e6f7ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+}
+
+.container{
+    text-align:center;
+    max-width:700px;
+    padding:40px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:20px;
+}
+
+p{
+    line-height:1.6;
+    color:#b9d7e3;
+}
+
+input{
+    padding:12px;
+    width:250px;
+    margin-top:20px;
+    border:none;
+    border-radius:4px;
+}
+
+button{
+    padding:12px 22px;
+    margin-left:10px;
+    border:none;
+    background:#5ee7ff;
+    color:black;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+button:hover{
+    background:#9ff2ff;
+}
+
+#welcomeBox{
+    display:none;
+    margin-top:30px;
+}
+```
