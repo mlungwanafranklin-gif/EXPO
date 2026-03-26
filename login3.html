@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spiritual Illusions — Enter the Light</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05060a;
+      --panel: #071124;
+      --accent: #5ee7ff;
+      --accent-warm: #ffd700;
+      --accent-glow: #5ee7ff40;
+      --text-primary: #ffffff;
+      --text-secondary: #b8c5d0;
+      --text-muted: #7b8a93;
+      --transition: cubic-bezier(0.4, 0, 0.2, 1);
+      --error: #ff6b6b;
+      --success: #6bffb0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Crimson Pro', Georgia, serif;
+      color: var(--text-primary);
+      background: #02040a;
+      overflow: hidden;
+    }
+
+    /* ── Main Split Layout ── */
+    .split-container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* ── Left Side: Login Form ── */
+    .left-panel {
+      flex: 0 0 45%;
+      background: linear-gradient(160deg, rgba(7,17,36,0.98) 0%, rgba(3,8,18,0.99) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 10px 0 40px rgba(0,0,0,0.5);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      animation: cardEnter 0.8s var(--transition) both;
+    }
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ── Right Side: Spiritual Visual ── */
+    .right-panel {
+      flex: 0 0 55%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0f1a 0%, #050810 100%);
+    }
+
+    /* Celestial background for right panel */
+    .right-panel .bg-stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px,  rgba(94,231,255,0.5), transparent),
+        radial-gradient(2px 2px at 40px 70px,  rgba(255,215,0,0.3),   transparent),
+        radial-gradient(1px 1px at 90px 40px,  rgba(94,231,255,0.4),  transparent),
+        radial-gradient(2px 2px at 160px 120px,rgba(255,215,0,0.3),   transparent),
+        radial-gradient(1px 1px at 230px 80px, rgba(94,231,255,0.35), transparent),
+        radial-gradient(2px 2px at 300px 150px,rgba(255,215,0,0.25),  transparent),
+        radial-gradient(1px 1px at 370px 40px, rgba(94,231,255,0.3),  transparent),
+        radial-gradient(1px 1px at 450px 100px,rgba(255,215,0,0.35),  transparent),
+        radial-gradient(3px 3px at 120px 200px, rgba(94,231,255,0.4), transparent),
+        radial-gradient(2px 2px at 280px 250px, rgba(255,215,0,0.2),  transparent),
+        radial-gradient(1px 1px at 400px 180px, rgba(94,231,255,0.3),  transparent),
+        radial-gradient(2px 2px at 500px 300px, rgba(255,215,0,0.25),  transparent);
+      background-size: 550px 350px;
+      animation: stars 60s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes stars {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-350px); }
+    }
+
+    /* Nebula effects */
+    .nebula-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: drift 20s ease-in-out infinite alternate;
+    }
+    .nebula-1 {
+      width: 600px; height: 600px;
+      top: -100px; left: -100px;
+      background: radial-gradient(circle, rgba(94,231,255,0.8) 0%, transparent 70%);
+      animation-delay: 0s;
+    }
+    .nebula-2 {
+      width: 500px; height: 500px;
+      bottom: -50px; right: -50px;
+      background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+      animation-delay: -5s;
+    }
+    .nebula-3 {
+      width: 400px; height: 400px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(107,255,176,0.4) 0%, transparent 70%);
+      animation-delay: -10s;
+    }
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(50px, 30px) scale(1.1); }
+    }
+
+    /* Central Mandala/Sacred Geometry */
+    .mandala-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mandala {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      animation: rotate 60s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .mandala-ring {
+      position: absolute;
+      border: 1px solid rgba(94,231,255,0.2);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .mandala-ring:nth-child(1) { width: 100%; height: 100%; animation: pulse-ring 4s ease-in-out infinite; }
+    .mandala-ring:nth-child(2) { width: 80%; height: 80%; border-color: rgba(255,215,0,0.15); animation: pulse-ring 4s ease-in-out infinite 0.5s; }
+    .mandala-ring:nth-child(3) { width: 60%; height: 60%; border-color: rgba(107,255,176,0.2); animation: pulse-ring 4s ease-in-out infinite 1s; }
+    .mandala-ring:nth-child(4) { width: 40%; height: 40%; border-color: rgba(94,231,255,0.25); animation: pulse-ring 4s ease-in-out infinite 1.5s; }
+    .mandala-ring:nth-child(5) { width: 20%; height: 20%; border-color: rgba(255,215,0,0.3); animation: pulse-ring 4s ease-in-out infinite 2s; }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+      50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
+    }
+
+    /* Sacred symbols */
+    .sacred-symbol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: rgba(255,215,0,0.6);
+      text-shadow: 0 0 40px rgba(255,215,0,0.4), 0 0 80px rgba(255,215,0,0.2);
+      animation: symbol-pulse 3s ease-in-out infinite;
+    }
+    @keyframes symbol-pulse {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(94,231,255,0.6);
+      border-radius: 50%;
+      animation: float-up 15s linear infinite;
+      box-shadow: 0 0 10px rgba(94,231,255,0.8);
+    }
+    @keyframes float-up {
+      from { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      to { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+
+    /* Quote section */
+    .quote-container {
+      position: absolute;
+      bottom: 60px;
+      left: 60px;
+      right: 60px;
+      text-align: center;
+      z-index: 10;
+    }
+    .quote-text {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.8;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+      animation: fade-in-up 1s ease-out 0.5s both;
+    }
+    .quote-ref {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: rgba(255,215,0,0.7);
+      text-transform: uppercase;
+      animation: fade-in-up 1s ease-out 0.8s both;
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top right decorative text */
+    .side-header {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      text-align: right;
+      z-index: 10;
+    }
+    .side-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      color: rgba(94,231,255,0.6);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .side-header p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    /* ── Brand mark ── */
+    .brand-mark {
+      text-align: center;
+      margin-bottom: 36px;
+      animation: fadeDown 0.7s 0.1s var(--transition) both;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .brand-icon {
+      font-size: 2rem;
+      color: var(--accent-warm);
+      display: block;
+      margin-bottom: 10px;
+      animation: pulse 3s ease-in-out infinite;
+      text-shadow: 0 0 20px rgba(255,215,0,0.6);
+      letter-spacing: 6px;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 0.8; text-shadow: 0 0 20px rgba(255,215,0,0.4); }
+      50%      { opacity: 1;   text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.3); }
+    }
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--accent);
+      text-shadow: 0 0 20px var(--accent-glow);
+      text-transform: uppercase;
+      display: block;
+    }
+    .brand-sub {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Tab switcher ── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+      padding: 4px;
+      border: 1px solid rgba(94,231,255,0.1);
+      animation: fadeDown 0.7s 0.2s var(--transition) both;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-radius: 8px;
+      transition: all 0.3s var(--transition);
+      position: relative;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(94,231,255,0.12), rgba(94,231,255,0.05));
+      color: var(--accent);
+      box-shadow: 0 0 20px rgba(94,231,255,0.1), inset 0 1px 0 rgba(94,231,255,0.1);
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+    .tab-btn:hover:not(.active) {
+      color: var(--text-secondary);
+    }
+
+    /* ── Forms ── */
+    .form-panel {
+      display: none;
+    }
+    .form-panel.active {
+      display: block;
+      animation: formIn 0.35s var(--transition) both;
+    }
+    @keyframes formIn {
+      from { opacity: 0; transform: translateX(10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .field {
+      margin-bottom: 20px;
+      animation: fadeUp 0.5s var(--transition) both;
+    }
+    .field:nth-child(1) { animation-delay: 0.05s; }
+    .field:nth-child(2) { animation-delay: 0.10s; }
+    .field:nth-child(3) { animation-delay: 0.15s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+    .field:focus-within label {
+      color: var(--accent);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+      transition: color 0.3s;
+    }
+    .field:focus-within .input-icon {
+      color: var(--accent);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 13px 14px 13px 40px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(94,231,255,0.15);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+      outline: none;
+      transition: all 0.3s var(--transition);
+      -webkit-appearance: none;
+    }
+    input::placeholder { color: var(--text-muted); font-style: italic; }
+    input:focus {
+      border-color: rgba(94,231,255,0.4);
+      background: rgba(94,231,255,0.04);
+      box-shadow: 0 0 20px rgba(94,231,255,0.08), inset 0 1px 0 rgba(94,231,255,0.05);
+    }
+    input.error-field {
+      border-color: rgba(255,107,107,0.5);
+      box-shadow: 0 0 15px rgba(255,107,107,0.1);
+    }
+
+    /* Password toggle */
+    .toggle-pw {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: color 0.3s;
+      line-height: 1;
+      padding: 4px;
+    }
+    .toggle-pw:hover { color: var(--accent); }
+
+    /* Strength bar */
+    .strength-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .strength-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 2px;
+      transition: width 0.4s var(--transition), background 0.4s;
+    }
+    .strength-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+      min-height: 1em;
+      transition: color 0.3s;
+    }
+
+    /* ── Messages ── */
+    .msg {
+      font-size: 0.88rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      display: none;
+      font-style: italic;
+      letter-spacing: 0.3px;
+      animation: msgIn 0.3s ease both;
+    }
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .msg.error   { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); color: var(--error); display: block; }
+    .msg.success { background: rgba(107,255,176,0.08); border: 1px solid rgba(107,255,176,0.3); color: var(--success); display: block; }
+
+    /* ── Submit button ── */
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(94,231,255,0.12), rgba(94,231,255,0.06));
+      border: 1px solid rgba(94,231,255,0.35);
+      border-radius: 10px;
+      color: var(--accent);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.35s var(--transition);
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 0 10px var(--accent-glow);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      margin-top: 4px;
+    }
+    .btn-submit::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(94,231,255,0.25), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, rgba(94,231,255,0.2), rgba(94,231,255,0.1));
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 30px rgba(94,231,255,0.2), 0 8px 30px rgba(0,0,0,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-submit:hover::before { transform: translateX(100%); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-submit .spinner {
+      display: none;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(94,231,255,0.3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto;
+    }
+    .btn-submit.loading .btn-text { display: none; }
+    .btn-submit.loading .spinner  { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(94,231,255,0.15));
+    }
+    .divider::after { background: linear-gradient(270deg, transparent, rgba(94,231,255,0.15)); }
+
+    /* ── Scripture quote ── */
+    .scripture-quote {
+      text-align: center;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding: 0 4px;
+      border-left: 2px solid rgba(255,215,0,0.25);
+      padding-left: 14px;
+      text-align: left;
+    }
+    .scripture-ref {
+      display: block;
+      margin-top: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      color: rgba(255,215,0,0.5);
+      font-style: normal;
+    }
+
+    /* ── Success screen ── */
+    .success-screen {
+      display: none;
+      text-align: center;
+      animation: formIn 0.5s var(--transition) both;
+    }
+    .success-screen.show { display: block; }
+    .success-glyph {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: glyphPop 0.5s 0.1s var(--transition) both;
+      color: var(--success);
+      text-shadow: 0 0 30px rgba(107,255,176,0.4);
+    }
+    @keyframes glyphPop {
+      from { transform: scale(0.5); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .success-screen h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .success-screen p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .btn-enter {
+      margin-top: 28px;
+      display: inline-block;
+      padding: 13px 40px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,215,0,0.05));
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 10px;
+      color: var(--accent-warm);
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s var(--transition);
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
+    }
+    .btn-enter:hover {
+      background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));
+      box-shadow: 0 0 30px rgba(255,215,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer ── */
+    .card-footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      letter-spacing: 0.3px;
+      border-top: 1px solid rgba(94,231,255,0.08);
+      padding-top: 20px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .split-container {
+        flex-direction: column;
+      }
+      .left-panel {
+        flex: 0 0 auto;
+        min-height: 100vh;
+        padding: 30px;
+      }
+      .right-panel {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .card { padding: 0; }
+      .brand-name { font-size: 1.1rem; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+<div class="split-container">
+  <!-- Left Side: Login Form -->
+  <div class="left-panel">
+    <div class="card">
+      <!-- Brand -->
+      <div class="brand-mark">
+        <span class="brand-icon">✦ ✦ ✦</span>
+        <span class="brand-name">Spiritual Illusions</span>
+        <span class="brand-sub">Light &amp; Truth</span>
+      </div>
+
+      <!-- Success screen (shown after login or register) -->
+      <div class="success-screen" id="successScreen">
+        <span class="success-glyph">◈</span>
+        <h3 id="successTitle">Welcome Back</h3>
+        <p id="successMsg">The light within awaits. You are known to this place.</p>
+        <a href="index.html" class="btn-enter">Enter the Light</a>
+      </div>
+
+      <!-- Auth forms -->
+      <div id="authForms">
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+          <button class="tab-btn" onclick="switchTab('register')">Register</button>
+        </div>
+
+        <!-- Login -->
+        <div class="form-panel active" id="loginPanel">
+          <div class="msg" id="loginMsg"></div>
+
+          <div class="field">
+            <label for="loginUser">Username</label>
+            <div class="input-wrap">
+              <span class="input-icon">◎</span>
+              <input type="text" id="loginUser" placeholder="Enter your name…" autocomplete="username" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="loginPass">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">⬡</span>
+              <input type="password" id="loginPass" placeholder="Your secret key…" autocomplete="current-password" />
+              <button class="toggle-pw" type="button" onclick="togglePw('loginPass', this)" aria-label="Toggle password">👁</button>
+            </div>
+          </div>
+
+          <button class="btn-submit" id="loginBtn" onclick="handleLogin()">
+            <span class="btn-text">Enter the Light</span>
+            <div class="spinner"></div>
+          </button>
+
+          <div class="divider">or</div>
+
+          <div class="scripture-quote">
+            "Ask, and it shall be given you; seek, and ye shall find."
+            <span class="scripture-ref">Matthew 7:7</span>
+          </div>
+        </div>
+
+        <!-- Register -->
+        <div class="form-panel" id="registerPanel">
+          <div class="msg" id="registerMsg"></div>
+
+          <div class="field">
+            <label for="regUser">Choose a Username</label>
+            <div class="input-wrap">
+              <span class="input-icon">◎</span>
+              <input type="text" id="regUser" placeholder="Your name in the light…" autocomplete="username" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="regPass">Create Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">⬡</span>
+              <input type="password" id="regPass" placeholder="At least 6 characters…" autocomplete="new-password" oninput="checkStrength(this.value)" />
+              <button class="toggle-pw" type="button" onclick="togglePw('regPass', this)" aria-label="Toggle password">👁</button>
+            </div>
+            <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+            <div class="strength-label" id="strengthLabel"></div>
+          </div>
+
+          <div class="field">
+            <label for="regConfirm">Confirm Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">⬡</span>
+              <input type="password" id="regConfirm" placeholder="Confirm your key…" autocomplete="new-password" />
+              <button class="toggle-pw" type="button" onclick="togglePw('regConfirm', this)" aria-label="Toggle password">👁</button>
+            </div>
+          </div>
+
+          <button class="btn-submit" id="registerBtn" onclick="handleRegister()">
+            <span class="btn-text">Begin the Journey</span>
+            <div class="spinner"></div>
+          </button>
+
+          <div class="divider">or</div>
+
+          <div class="scripture-quote">
+            "Behold, I stand at the door, and knock: if any man hear my voice…"
+            <span class="scripture-ref">Revelation 3:20</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        Your journey is your own. Enter with sincerity of heart.
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side: Spiritual Visual -->
+  <div class="right-panel">
+    <div class="bg-stars"></div>
+    <div class="nebula-blob nebula-1"></div>
+    <div class="nebula-blob nebula-2"></div>
+    <div class="nebula-blob nebula-3"></div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="side-header">
+      <h2>✦ The Eternal Round ✦</h2>
+      <p>Where light meets truth</p>
+    </div>
+
+    <div class="mandala-container">
+      <div class="mandala">
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        <div class="sacred-symbol">✦</div>
+      </div>
+    </div>
+
+    <div class="quote-container">
+      <p class="quote-text">"The light shineth in darkness, and the darkness comprehendeth it not. Yet to those who seek, the path is always illuminated."</p>
+      <span class="quote-ref">— The Ancient Wisdom</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── Generate floating particles ── */
+  function createParticles() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+      container.appendChild(particle);
+    }
+  }
+  createParticles();
+
+  /* ── Simple localStorage-based auth (replace fetch() calls for real backend) ── */
+
+  const USERS_KEY = 'spiritualIllusions_users';
+  const SESSION_KEY = 'spiritualIllusions_session';
+
+  function getUsers() {
+    try { return JSON.parse(localStorage.getItem(USERS_KEY) || '{}'); }
+    catch { return {}; }
+  }
+  function saveUsers(u) { localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+
+  /* ── Tab switching ── */
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) =>
+      b.classList.toggle('active', (tab === 'login' ? i === 0 : i === 1)));
+    document.getElementById('loginPanel').classList.toggle('active', tab === 'login');
+    document.getElementById('registerPanel').classList.toggle('active', tab === 'register');
+    clearMsgs();
+  }
+
+  function clearMsgs() {
+    document.getElementById('loginMsg').className = 'msg';
+    document.getElementById('loginMsg').textContent = '';
+    document.getElementById('registerMsg').className = 'msg';
+    document.getElementById('registerMsg').textContent = '';
+    document.querySelectorAll('input').forEach(i => i.classList.remove('error-field'));
+  }
+
+  function showMsg(id, type, text) {
+    const el = document.getElementById(id);
+    el.className = 'msg ' + type;
+    el.textContent = text;
+  }
+
+  /* ── Password visibility toggle ── */
+  function togglePw(inputId, btn) {
+    const inp = document.getElementById(inputId);
+    if (inp.type === 'password') { inp.type = 'text'; btn.textContent = '🙈'; }
+    else                         { inp.type = 'password'; btn.textContent = '👁'; }
+  }
+
+  /* ── Password strength ── */
+  function checkStrength(pw) {
+    const fill  = document.getElementById('strengthFill');
+    const label = document.getElementById('strengthLabel');
+    if (!pw) { fill.style.width = '0'; label.textContent = ''; return; }
+
+    let score = 0;
+    if (pw.length >= 6)  score++;
+    if (pw.length >= 10) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+
+    const levels = [
+      { w: '20%',  bg: '#ff6b6b', txt: 'Very weak — seek deeper' },
+      { w: '40%',  bg: '#ffaa6b', txt: 'Weak — still searching' },
+      { w: '60%',  bg: '#ffd700', txt: 'Moderate — growing in light' },
+      { w: '80%',  bg: '#9bffb0', txt: 'Strong — well fortified' },
+      { w: '100%', bg: '#5ee7ff', txt: 'Excellent — a mighty fortress' },
+    ];
+    const l = levels[Math.min(score, 4)];
+    fill.style.width      = l.w;
+    fill.style.background = l.bg;
+    label.style.color     = l.bg;
+    label.textContent     = l.txt;
+  }
+
+  /* ── Loading state ── */
+  function setLoading(btnId, on) {
+    const btn = document.getElementById(btnId);
+    btn.classList.toggle('loading', on);
+    btn.disabled = on;
+  }
+
+  /* ── Show success screen ── */
+  function showSuccess(title, msg) {
+    document.getElementById('authForms').style.display = 'none';
+    document.getElementById('successTitle').textContent = title;
+    document.getElementById('successMsg').textContent   = msg;
+    document.getElementById('successScreen').classList.add('show');
+  }
+
+  /* ── Login ── */
+  async function handleLogin() {
+    clearMsgs();
+    const username = document.getElementById('loginUser').value.trim();
+    const password = document.getElementById('loginPass').value;
+
+    if (!username) { showMsg('loginMsg', 'error', 'Please enter your username.'); document.getElementById('loginUser').classList.add('error-field'); return; }
+    if (!password) { showMsg('loginMsg', 'error', 'Please enter your password.'); document.getElementById('loginPass').classList.add('error-field'); return; }
+
+    setLoading('loginBtn', true);
+    await delay(700);
+
+    const users = getUsers();
+    if (!users[username] || users[username] !== password) {
+      setLoading('loginBtn', false);
+      showMsg('loginMsg', 'error', 'That name or key was not recognised.');
+      document.getElementById('loginUser').classList.add('error-field');
+      document.getElementById('loginPass').classList.add('error-field');
+      return;
+    }
+    localStorage.setItem(SESSION_KEY, username);
+    setLoading('loginBtn', false);
+    showSuccess('Welcome Back', `The path is open for you, ${username}. Let your light continue to shine.`);
+  }
+
+  /* ── Register ── */
+  async function handleRegister() {
+    clearMsgs();
+    const username = document.getElementById('regUser').value.trim();
+    const password = document.getElementById('regPass').value;
+    const confirm  = document.getElementById('regConfirm').value;
+
+    if (!username || username.length < 3) { showMsg('registerMsg', 'error', 'Username must be at least 3 characters.'); document.getElementById('regUser').classList.add('error-field'); return; }
+    if (!password || password.length < 6) { showMsg('registerMsg', 'error', 'Password must be at least 6 characters.'); document.getElementById('regPass').classList.add('error-field'); return; }
+    if (password !== confirm)             { showMsg('registerMsg', 'error', 'Passwords do not match.'); document.getElementById('regConfirm').classList.add('error-field'); return; }
+
+    setLoading('registerBtn', true);
+    await delay(800);
+
+    const users = getUsers();
+    if (users[username]) {
+      setLoading('registerBtn', false);
+      showMsg('registerMsg', 'error', 'That name is already taken. Choose another.');
+      document.getElementById('regUser').classList.add('error-field');
+      return;
+    }
+    users[username] = password;
+    saveUsers(users);
+    localStorage.setItem(SESSION_KEY, username);
+    setLoading('registerBtn', false);
+    showSuccess('Your Light Is Kindled', `Welcome, ${username}. A new soul enters the eternal round. May your journey be filled with truth and light.`);
+  }
+
+  /* ── Keyboard shortcuts ── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      if (document.getElementById('loginPanel').classList.contains('active'))    handleLogin();
+      if (document.getElementById('registerPanel').classList.contains('active')) handleRegister();
+    }
+  });
+
+  function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  /* ── Auto-redirect if already logged in ── */
+  if (localStorage.getItem(SESSION_KEY)) {
+    // Optionally redirect: window.location.href = 'index.html';
+  }
+</script>
+</body>
+</html>
